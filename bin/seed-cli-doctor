@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var fs = require('fs');
+var exists = fs.existsSync;
+var mkdir = fs.mkdirSync;
+var chalk = require('chalk');
+
+/**
+ * Usage.
+ */
+
+program
+  .usage('.');
+
+/**
+ * Help.
+ */
+
+program.on('--help', function () {
+  console.log('  Examples:');
+  console.log();
+  console.log(chalk.gray('    # examine the current project'));
+  console.log('    $ cd ~/workspace/project');
+  console.log('    $ seed-cli doctor .');
+  console.log();
+});
+
+/**
+ * Help.
+ */
+
+function help () {
+  program.parse(process.argv)
+  if (program.args.length < 1) return program.help()
+}
+help()
+
+/**
+ * Padding.
+ */
+
+console.log()
+process.on('exit', function () {
+  console.log()
+})
+
+/**
+ * Settings.
+ */
+
+if (!exists('.seed-cli')){
+  mkdir('.seed-cli');
+}
+
+console.log(chalk.green('    ✔ Everything is alright.'));
+process.exit();
