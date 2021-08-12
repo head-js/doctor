@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var execSync = require('child_process').execSync;
+var program = require('commander');
+var chalk = require('chalk');
+var lock = require('../package-lock/lock');
+
+/**
+ * Usage.
+ */
+
+program
+  .usage('.');
+
+/**
+ * Help.
+ */
+
+program.on('--help', function () {
+  console.log('  Examples:');
+  console.log();
+  console.log(chalk.gray('    # examine the current project'));
+  console.log('    $ cd ~/workspace/project');
+  console.log('    $ seed-cli package-lock .');
+  console.log();
+});
+
+/**
+ * Help.
+ */
+
+function help () {
+  program.parse(process.argv)
+  if (program.args.length < 1) return program.help()
+}
+help()
+
+/**
+ * Padding.
+ */
+
+console.log()
+process.on('exit', function () {
+  console.log()
+})
+
+/**
+ * Settings.
+ */
+
+execSync('npm install --package-lock-only --package-lock --production --no-optional');
+
+lock();
+
+console.log(chalk.green('    ✔ $ cat ./.seed-cli/package-lock-core-report.json'));
+process.exit();

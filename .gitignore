@@ -115,5 +115,8 @@ dist
 .yarn/build-state.yml
 .pnp.*
 
+package-lock.json
+package-lock-*.json
+
 .DS_Store
 .seed-cli

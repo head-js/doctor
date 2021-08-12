@@ -1,6 +1,6 @@
 {
   "name": "@head/seed-cli",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "$ npm install -g --upgrade @head/seed-cli",
   "repository": {
     "type": "git",

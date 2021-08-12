@@ -6,4 +6,5 @@ require('commander')
   .command('init', 'generate a new project from a template')
   .command('list', 'list available templates')
   .command('doctor', 'help to diagnosis the problems')
+  .command('package-lock', 'package-lock')
   .parse(process.argv);
