@@ -1,8 +1,8 @@
-@head/seed-cli
+@head/cli
 ==
 
 ``` bash
-$ npm install -g --upgrade @head/seed-cli
+$ npm install -g --upgrade @head/cli
 ```
 
 Development Setup

@@ -1,16 +1,16 @@
 {
-  "name": "@head/seed-cli",
-  "version": "0.1.4",
-  "description": "$ npm install -g --upgrade @head/seed-cli",
+  "name": "@head/cli",
+  "version": "0.2.3",
+  "description": "$ npm install -g --upgrade @head/cli",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/head-js/seed-cli.git"
+    "url": "git+https://github.com/head-js/cli.git"
   },
   "author": "理斯特<shuaizhexu@gmail.com>",
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "seed-cli": "bin/seed-cli"
+    "head-cli": "bin/head-cli"
   },
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "devDependencies": {},
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12.0.0"
   }
 }

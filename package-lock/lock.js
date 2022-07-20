@@ -30,7 +30,7 @@ module.exports = function lock() {
   const dependencies = pkg.dependencies;
 
   const pretty = JSON.stringify(dependencies, null, 2);
-  fs.writeFileSync(path.resolve(DIR, './.seed-cli/package-lock-pretty.json'), pretty, 'utf-8');
+  fs.writeFileSync(path.resolve(DIR, './.head-cli/package-lock-pretty.json'), pretty, 'utf-8');
 
   function pick(dependencies) {
     Object.keys(dependencies).forEach(lib => {
@@ -51,7 +51,7 @@ module.exports = function lock() {
 
   pick(pkg.dependencies);
   const core = JSON.stringify(pkg.dependencies, null, 2);
-  fs.writeFileSync(path.resolve(DIR, './.seed-cli/package-lock-core.json'), core, 'utf-8');
+  fs.writeFileSync(path.resolve(DIR, './.head-cli/package-lock-core.json'), core, 'utf-8');
 
   const reduce = [];
   function flat(ns, dependencies) {
@@ -95,7 +95,7 @@ module.exports = function lock() {
   ];
 
   const report = JSON.stringify([].concat(reduce).concat(npm), null, 2);
-  fs.writeFileSync(path.resolve(DIR, './.seed-cli/package-lock-core-report.json'), report, 'utf-8');
+  fs.writeFileSync(path.resolve(DIR, './.head-cli/package-lock-core-report.json'), report, 'utf-8');
 
   return Promise.resolve();
 };

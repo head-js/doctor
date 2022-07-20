@@ -3,7 +3,7 @@ const path = require('path');
 
 
 const PROJECT_PATH = process.cwd();
-const configFile = path.resolve(PROJECT_PATH, '.seed-cli.config.js');
+const configFile = path.resolve(PROJECT_PATH, '.head-cli.config.js');
 
 
 const byPrefix = ['@types/', 'babel-preset-', 'eslint-plugin-'];
@@ -29,11 +29,13 @@ const byExact = [
   "webpack-bundle-analyzer", "webpack-dev-middleware", "webpack-dev-server",
   // NOTE: core
   "ajv", "axios", "core-js", "dayjs", "react", "react-dom", "prop-types", "react-redux", "react-router", "react-router-redux", "redux", "redux-saga", "immutable", "path-to-regexp",
-  "lodash", "lodash-es", "head-http", "vanilla.js", "vue", "vue-router", "vuex",
+  "vue", "vue-router", "vuex",
+  "lodash", "lodash-es", "vanilla.js",
   // NOTE: ui core
   "antd", "rc-form", "rc-menu", "rc-table", "rc-tabs", "react-contextmenu",
   "dva-core", "dva-react-router-3", "dva-loading", "antd-dayjs-webpack-plugin",
-  "draft-js",
+  "draft-js", "dayjs",
+  "@vant/*",
   // NOTE: deprecated
   "gulp-replace", "classnames", "happypack", "moment", "postcss-scss", "run-sequence", "uglifyjs-webpack-plugin",
   // NOTE: security risk
