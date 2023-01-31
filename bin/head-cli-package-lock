@@ -51,7 +51,7 @@ process.on('exit', function () {
  */
 
 if (!fs.existsSync('package-lock.json')) {
-  execSync('npm install --package-lock-only --package-lock --production --no-optional');
+  execSync('npm install --package-lock-only --package-lock --omit=optional');
 }
 
 lock();
