@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var path = require('path');
 var execSync = require('child_process').execSync;
 var program = require('commander');
 var chalk = require('chalk');
@@ -56,5 +55,5 @@ if (!fs.existsSync('package-lock.json')) {
 
 lock();
 
-console.log(chalk.green('    ✔ $ cat ./.head-cli/package-lock-core-report.json'));
+console.log(chalk.green('    ✔ $ cat ./.head-cli/inspect-package-lock.json'));
 process.exit();

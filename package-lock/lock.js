@@ -52,7 +52,7 @@ module.exports = function lock() {
   });
 
   const v2 = JSON.stringify(dependencies, null, 2);
-  fs.writeFileSync(path.resolve(DIR, './.head-cli/package-lock.json'), v2, 'utf-8');
+  fs.writeFileSync(path.resolve(DIR, './.head-cli/package-lock-rfc.json'), v2, 'utf-8');
   const core = dependencies.filter(lib => deps(lib.name));
   const v2Core = JSON.stringify(core, null, 2);
   fs.writeFileSync(path.resolve(DIR, './.head-cli/package-lock-core.json'), v2Core, 'utf-8');
@@ -69,7 +69,7 @@ module.exports = function lock() {
       }
     } else {
       if (dept.name) {
-        return importers.map(p => `${from.name} / ${p}`);
+        return importers.map(p => `${dept.name} / ${p}`);
       } else {
         return importers;
       }
@@ -77,7 +77,7 @@ module.exports = function lock() {
   }
 
   function explain(lib, version) {
-    const dependents = JSON.parse(execSync(`npm explain ${lib}@${version} --json`, { maxBuffer: 1024 * 1024 * 10 }).toString().trim());
+    const dependents = JSON.parse(execSync(`npm explain ${lib}@${version} --json`, { maxBuffer: 1024 * 1024 * 30 }).toString().trim());
     const importers = dependents.reduce((prev, dept) => prev.concat(pend([`${lib}@${version}`], dept)), []);
     return importers.map(p => {
       const ps = p.split(' / ');
@@ -113,7 +113,7 @@ module.exports = function lock() {
   ];
 
   const report = JSON.stringify([].concat(core).concat(npm), null, 2);
-  fs.writeFileSync(path.resolve(DIR, './.head-cli/package-lock-core-report.json'), report, 'utf-8');
+  fs.writeFileSync(path.resolve(DIR, './.head-cli/inspect-package-lock.json'), report, 'utf-8');
 
   return Promise.resolve();
 };
