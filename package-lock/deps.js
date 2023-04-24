@@ -12,7 +12,7 @@ const byPrefix = [
   // core
   '@vue/',
   // ui core
-  '@vant/',
+  '@element-plus/', '@vant/',
   // deprecated
   'babel-preset-', 'babel-plugin-',
 ];
@@ -35,7 +35,7 @@ const byExact = [
   'webpack-bundle-analyzer', 'webpack-dev-middleware', 'webpack-dev-server',
   'vconsole', 'vconsole-webpack-plugin',
   // NOTE: core
-  'axios', 'dayjs', 'react', 'react-dom', 'prop-types', 'react-redux', 'react-router', 'react-router-redux', 'redux', 'redux-saga', 'immutable',
+  'ajv', 'async-validator', 'axios', 'dayjs', 'react', 'react-dom', 'prop-types', 'react-redux', 'react-router', 'react-router-redux', 'redux', 'redux-saga', 'immutable',
   'path-to-regexp',
   'vue', 'vue-router', 'vuex',
   'lodash', 'lodash-es', 'vanilla.js',
@@ -43,13 +43,13 @@ const byExact = [
   'antd', 'rc-form', 'rc-menu', 'rc-table', 'rc-tabs', 'react-contextmenu',
   'dva-core', 'dva-react-router-3', 'dva-loading', 'antd-dayjs-webpack-plugin',
   'draft-js',
-  'vant',
+  'element-ui', 'element-plus', 'vant',
   // NOTE: deprecated
   'babel-runtime', 'babel-core', 'babel-polyfill',
   '@babel/runtime-corejs3',
   'gulp-replace', 'classnames', 'happypack', 'moment', 'run-sequence', 'uglifyjs-webpack-plugin',
   // NOTE:
-  // 'ajv', 'acron', 'yargs', 'minimatch', 'minimist', 'graceful-fs', 'chokidar'
+  // 'acron', 'yargs', 'minimatch', 'minimist', 'graceful-fs', 'chokidar'
 ];
 
 const skipExact = [
@@ -65,6 +65,7 @@ if (fs.existsSync(configFile)) {
         const idx = skipExact.findIndex(lib => lib === pattern.substring(2));
         if (idx > -1) {
           skipExact.splice(idx, 1);
+          byExact.push(pattern.substring(2));
         }
       } else if (pattern.startsWith('-')) {
         skipExact.push(pattern.substring(1));

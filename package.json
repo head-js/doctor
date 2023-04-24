@@ -1,6 +1,6 @@
 {
   "name": "@head/cli",
-  "version": "0.3.5",
+  "version": "0.3.7",
   "description": "$ npm install -g --upgrade @head/cli",
   "repository": {
     "type": "git",
