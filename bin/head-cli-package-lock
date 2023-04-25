@@ -23,7 +23,7 @@ program.on('--help', function () {
   console.log();
   console.log(chalk.gray('    # examine the current project'));
   console.log('    $ cd ~/workspace/project');
-  console.log('    $ head package-lock .');
+  console.log('    $ head-cli package-lock .');
   console.log();
 });
 
@@ -31,7 +31,7 @@ program.on('--help', function () {
  * Help.
  */
 
-function help () {
+function help() {
   program.parse(process.argv)
   if (program.args.length < 1) return program.help()
 }

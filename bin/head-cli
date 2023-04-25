@@ -7,4 +7,5 @@ require('commander')
   .command('list', 'list available templates')
   .command('doctor', 'help to diagnosis the problems')
   .command('package-lock', 'package-lock')
+  .command('summerize', 'summerize')
   .parse(process.argv);
